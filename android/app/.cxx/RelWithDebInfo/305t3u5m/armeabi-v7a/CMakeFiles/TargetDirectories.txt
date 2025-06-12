@@ -1,0 +1,2 @@
+C:/Users/frdmo/AndroidStudioProjects/poche/android/app/.cxx/RelWithDebInfo/305t3u5m/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/frdmo/AndroidStudioProjects/poche/android/app/.cxx/RelWithDebInfo/305t3u5m/armeabi-v7a/CMakeFiles/rebuild_cache.dir
