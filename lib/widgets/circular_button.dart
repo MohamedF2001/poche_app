@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 
 class CircularButton extends StatelessWidget {
   const CircularButton(
-      {Key? key,
+      {super.key,
       this.size = 25,
       this.iconColor = Colors.blue,
       required this.onPressed,
-      required this.icon})
-      : super(key: key);
+      required this.icon});
   final double size;
   final Function onPressed;
   final IconData icon;
@@ -29,6 +28,7 @@ class CircularButton extends StatelessWidget {
         type: MaterialType.circle,
         elevation: 0,
         child: InkWell(
+            // ignore: deprecated_member_use
             highlightColor: Colors.grey.withOpacity(.5),
             onTap: () {
               onPressed();

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:drawerbehavior/drawerbehavior.dart' as drawer;
 import 'package:flutter/services.dart';
@@ -11,7 +13,7 @@ import 'package:poche/screens/statistics/screen_statistics.dart';
 import 'package:poche/util.dart';
 
 class HomeDrawer extends StatefulWidget {
-  const HomeDrawer({Key? key}) : super(key: key);
+  const HomeDrawer({super.key});
   @override
   State<HomeDrawer> createState() => _HomeDrawerState();
 }
@@ -27,7 +29,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
         title: 'Accueil',
         prefix: null,
         suffix: null,
-        textStyle: const TextStyle(fontSize: 17),
+        //textStyle: const TextStyle(fontSize: 17),
       ),
       drawer.MenuItem(
         id: 'catégories',
@@ -37,7 +39,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
         //Icon(Icons.bar_chart),
         // Ensure that either prefix or icon is set and the other is null
         suffix: null,
-        textStyle: const TextStyle(fontSize: 17),
+        //textStyle: const TextStyle(fontSize: 17),
       ),
       drawer.MenuItem(
         id: 'statuesque',
@@ -47,7 +49,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
         //Icon(Icons.bar_chart),
         // Ensure that either prefix or icon is set and the other is null
         suffix: null,
-        textStyle: const TextStyle(fontSize: 17),
+        //textStyle: const TextStyle(fontSize: 17),
       ),
       drawer.MenuItem(
         id: 'paramètres',
@@ -57,7 +59,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
         //Icon(Icons.bar_chart),
         // Ensure that either prefix or icon is set and the other is null
         suffix: null,
-        textStyle: const TextStyle(fontSize: 17),
+        //textStyle: const TextStyle(fontSize: 17),
       ),
     ],
   );
@@ -96,20 +98,20 @@ class _HomeDrawerState extends State<HomeDrawer> {
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 decoration: BoxDecoration(
                     color: isSelected
-                        ? Colors.orange.withOpacity(0.2)
+                        ? Colors.blueAccent.withOpacity(0.2)
                         : Colors.transparent,
                     borderRadius: const BorderRadius.horizontal(
                         right: Radius.circular(50))),
                 child: Row(children: [
                   Icon(
                     menuItem.icon,
-                    color: isSelected ? Colors.orange : Colors.black,
+                    color: isSelected ? Colors.blueAccent : Colors.black,
                   ),
                   const SizedBox(width: 20),
                   Text(
                     menuItem.title,
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: isSelected ? Colors.orange : Colors.black,
+                        color: isSelected ? Colors.blueAccent : Colors.black,
                         fontWeight: FontWeight.bold),
                   )
                 ]),
@@ -140,7 +142,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
 }
 
 class HeaderView extends StatefulWidget {
-  const HeaderView({Key? key}) : super(key: key);
+  const HeaderView({super.key});
 
   @override
   State<HeaderView> createState() => _HeaderViewState();
@@ -188,10 +190,10 @@ class _HeaderViewState extends State<HeaderView> {
                           fontWeight: FontWeight.bold,
                           fontSize: 19),
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 10),
                   ],
                 ),
-                const Spacer(flex: 3)
+                const Spacer(flex: 1)
               ],
             ),
             const Divider(thickness: 1)
@@ -203,7 +205,7 @@ class _HeaderViewState extends State<HeaderView> {
 }
 
 class DrawerScreen extends StatefulWidget {
-  const DrawerScreen({Key? key, required this.screen}) : super(key: key);
+  const DrawerScreen({super.key, required this.screen});
   final Widget screen;
   @override
   State<DrawerScreen> createState() => _DrawerScreenState();

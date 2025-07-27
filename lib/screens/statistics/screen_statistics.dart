@@ -7,7 +7,7 @@ import 'package:poche/screens/statistics/yearly_chart.dart';
 import 'package:poche/widgets/menu_widget.dart';
 
 class ScreenStatistics extends StatefulWidget {
-  const ScreenStatistics({Key? key}) : super(key: key);
+  const ScreenStatistics({super.key});
   @override
   State<ScreenStatistics> createState() => _ScreenStatisticsState();
 }
@@ -41,10 +41,12 @@ class _ScreenStatisticsState extends State<ScreenStatistics>
     return Scaffold(
         appBar: AppBar(
           leading: const MenuWidget(),
-          title: const Text('Statistiques',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),),
+          title: const Text(
+            'Statistiques',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           centerTitle: true,
         ),
         body: Container(

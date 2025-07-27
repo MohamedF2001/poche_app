@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:intl/intl.dart';
@@ -10,8 +12,10 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _userInput = TextEditingController();
-  static const apiKey = "AIzaSyDweoTjFYq1VH9btpWbNaRBdkg3hGHSMwk";
-  final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
+  static const apiKey = "AIzaSyDKqpjyBbXJ86EKKESHP2JYdkZhcxm-dzA";
+  //final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
+  final model =
+      GenerativeModel(model: 'gemini-1.5-flash-latest', apiKey: apiKey);
   final List<Message> _messages = [];
   Future<void> sendMessage() async {
     final message = _userInput.text;
@@ -41,6 +45,17 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'Chatbot',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
@@ -67,7 +82,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             date: DateFormat('HH:mm').format(message.date));
                       })),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(12),
                 child: Row(
                   children: [
                     Expanded(
@@ -76,12 +91,18 @@ class _ChatScreenState extends State<ChatScreen> {
                         //style: const TextStyle(color: Colors.white),
                         controller: _userInput,
                         decoration: InputDecoration(
+                          labelStyle: const TextStyle(color: Colors.blue),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.blue),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                           border: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.blue),
                             borderRadius: BorderRadius.circular(15),
                           ),
                           label: const Text(
                             'Entrer votre message',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 16, color: Colors.black),
                           ),
                         ),
                       ),
@@ -89,14 +110,14 @@ class _ChatScreenState extends State<ChatScreen> {
                     const Spacer(),
                     IconButton(
                         padding: const EdgeInsets.all(12),
-                        iconSize: 30,
+                        //iconSize: 30,
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                const Color(0xff43576f)),
+                            backgroundColor:
+                                WidgetStateProperty.all(Colors.blue),
                             foregroundColor:
-                                MaterialStateProperty.all(Colors.white),
+                                WidgetStateProperty.all(Colors.white),
                             shape:
-                                MaterialStateProperty.all(const CircleBorder())),
+                                WidgetStateProperty.all(const CircleBorder())),
                         onPressed: () {
                           sendMessage();
                           _userInput.clear();
@@ -137,7 +158,7 @@ class Messages extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 15)
           .copyWith(left: isUser ? 100 : 10, right: isUser ? 10 : 100),
       decoration: BoxDecoration(
-          color: isUser ? const Color(0xff45576f) : Colors.grey.shade400,
+          color: isUser ? Colors.blue : Colors.grey.shade400,
           borderRadius: BorderRadius.only(
               topLeft: const Radius.circular(10),
               bottomLeft: isUser ? const Radius.circular(10) : Radius.zero,
@@ -150,6 +171,9 @@ class Messages extends StatelessWidget {
             message,
             style: TextStyle(
                 fontSize: 16, color: isUser ? Colors.white : Colors.black),
+          ),
+          const SizedBox(
+            height: 5,
           ),
           Text(
             date,

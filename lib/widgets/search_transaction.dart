@@ -11,6 +11,33 @@ import 'package:poche/widgets/tile_transaction.dart';
 
 class TransactionSearchDelegate extends SearchDelegate {
   @override
+  ThemeData appBarTheme(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return theme.copyWith(
+      textTheme: theme.textTheme.copyWith(
+        titleLarge: const TextStyle(
+          fontSize: 18, // Ajustez cette valeur selon vos besoins
+          fontFamily: 'Poppins',
+        ),
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        // Style pour le texte saisi dans le champ de recherche
+        hintStyle: TextStyle(
+          fontSize: 16,
+          fontFamily: 'Poppins',
+        ),
+        // Style pour le texte pendant la saisie
+        contentPadding: EdgeInsets.symmetric(vertical: 5),
+      ),
+      textSelectionTheme: const TextSelectionThemeData(
+        // Couleur du curseur et du texte sélectionné
+        cursorColor: Colors.blue,
+        selectionColor: Colors.blue,
+      ),
+    );
+  }
+
+  @override
   String? get searchFieldLabel => 'Rechercher une opération';
   List<Transaction> transactions = TransactionController().allTransactions;
   List<Category> categories = CategoryController.getCategoriesBox()
@@ -52,7 +79,8 @@ class TransactionSearchDelegate extends SearchDelegate {
       }
     }
     if (query.isNotEmpty && resultList.isEmpty) {
-      return const EmptyView(icon: Icons.search, label: 'Aucun résultat trouvé');
+      return const EmptyView(
+          icon: Icons.search, label: 'Aucun résultat trouvé');
     }
     return SlidableAutoCloseBehavior(
       child: ListView.builder(

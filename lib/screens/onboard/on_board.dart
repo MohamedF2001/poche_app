@@ -4,7 +4,7 @@ import 'package:poche/screens/onboard/size.dart';
 import 'package:poche/screens/splashscreen.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+  const OnboardingScreen({super.key});
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -49,14 +49,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    double width = SizeConfig.screenW!;
-    double height = SizeConfig.screenH!;
+    //double width = SizeConfig.screenW!;
+    //double height = SizeConfig.screenH!;
 
     return Scaffold(
-      backgroundColor: colors[_currentPage],
+      //backgroundColor: colors[_currentPage],
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
+        decoration: const BoxDecoration(
+            /*gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
@@ -73,8 +73,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ? const Color(0xff43576f).withOpacity(0.7)
                   : Colors.green.withOpacity(0.8),
             ],
-          ),
-        ),
+          ),*/
+            ),
         child: SafeArea(
           child: Column(
             children: [
@@ -89,41 +89,35 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   itemBuilder: (context, i) {
                     return Padding(
                       padding: const EdgeInsets.all(30.0),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              contents[i].image,
-                              height: SizeConfig.blockV! * 30,
-                              //height: 230,
-                            ),
-                            const SizedBox(
-                              height:10,
-                            ),
-                           /* SizedBox(
-                              height: (height >= 840) ? 60 : 20,
-                            ),*/
-                            Text(
-                              contents[i].title,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
+                      child: Column(
+                        children: [
+                          const Spacer(),
+                          Image.asset(
+                            contents[i].image,
+                            height: SizeConfig.blockV! * 20,
+                            //height: 230,
+                          ),
+                          const Spacer(),
+                          Text(
+                            contents[i].title,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 //fontSize: (width <= 550) ? 30 : 35,
-                                fontSize:30
-                              ),
+                                fontSize: 22),
+                          ),
+                          const Spacer(),
+                          Text(
+                            contents[i].desc,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                              //fontSize: (width <= 550) ? 17 : 25,
+                              //fontSize:17
                             ),
-                            //const SizedBox(height: 10),
-                            Text(
-                              contents[i].desc,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                //fontSize: (width <= 550) ? 17 : 25,
-                                fontSize:17
-                              ),
-                              textAlign: TextAlign.center,
-                            )
-                          ],
-                        ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const Spacer()
+                        ],
                       ),
                     );
                   },
@@ -156,15 +150,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 );
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: colors[_currentPage],
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
-                                padding:EdgeInsets.all(16),
-                                textStyle: const TextStyle(fontSize: 15),
                               ),
                               child: const Text(
-                                "COMMENCER",
+                                "Commencer",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -186,11 +177,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     textStyle: const TextStyle(
                                       fontWeight: FontWeight.w600,
                                       //fontSize: (width <= 550) ? 13 : 17,
-                                      fontSize: 15,
+                                      //fontSize: 15,
                                     ),
                                   ),
                                   child: const Text(
-                                    "PASSER",
+                                    "Passer",
                                     style: TextStyle(color: Colors.black),
                                   ),
                                 ),
@@ -203,21 +194,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     );
                                   },
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: colors[_currentPage],
+                                    //backgroundColor: colors[_currentPage],
                                     shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                        //color: Colors.black,
-                                        color: colors[_currentPage],
-                                        width: 2,
-                                      ),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
-                                    elevation: 0,
-                                    padding:  EdgeInsets.all(16),
-                                    textStyle: const TextStyle(
-                                      //fontSize: (width <= 550) ? 13 : 17
-                                      fontSize: 15,
-                                    ),
+                                    //padding:EdgeInsets.all(16),
+                                    //textStyle: const TextStyle(fontSize: 15),
                                   ),
                                   child: const Text(
                                     "NEXT",

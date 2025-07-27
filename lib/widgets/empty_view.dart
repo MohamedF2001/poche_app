@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 
 class EmptyView extends StatelessWidget {
   const EmptyView({
-    Key? key,
+    super.key,
     this.color = Colors.black,
     required this.icon,
     required this.label,
-  }) : super(key: key);
+  });
   final IconData icon;
   final String label;
   final Color color;
   @override
   Widget build(BuildContext context) {
+    // ignore: deprecated_member_use
     final colorA = color.withOpacity(0.6);
     return SizedBox(
       width: double.infinity,

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
@@ -17,7 +19,7 @@ import '../../models/transaction.dart';
 import '../../widgets/empty_view.dart';
 
 class ScreenHome extends StatefulWidget {
-  const ScreenHome({Key? key}) : super(key: key);
+  const ScreenHome({super.key});
 
   @override
   State<ScreenHome> createState() => _ScreenHomeState();
@@ -50,10 +52,17 @@ class _ScreenHomeState extends State<ScreenHome> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 2,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "Bienvenue ",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: textColor,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Poppins',
+          ),
         ),
         leading: const MenuWidget(),
         actions: [
@@ -88,15 +97,17 @@ class _ScreenHomeState extends State<ScreenHome> {
               },
               child: Image.asset(
                 "assets/images/iaa.png",
-                width: 30,
-                height: 30,
+                width: 25,
+                height: 25,
               ),
             ),
           )
         ],
       ),
       backgroundColor: const Color(0xFFF3f3f3),
-      floatingActionButton: /* SpeedDial(
+      floatingActionButton:
+
+          /* SpeedDial(
         icon: Icons.add,
         backgroundColor: Colors.orange,
         children: [
@@ -158,7 +169,6 @@ class _ScreenHomeState extends State<ScreenHome> {
         tooltip: 'Nouvelle Transaction',
         child: const Icon(
           Icons.add,
-          color: Colors.black,
         ),
       ),
       body: GetBuilder<TransactionController>(
@@ -175,26 +185,19 @@ class _ScreenHomeState extends State<ScreenHome> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       'Opérations récentes',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium!
-                          .copyWith(fontWeight: FontWeight.bold),
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const TransactionsScreen()));
                       },
-                      child: Text(
+                      child: const Text(
                         'Voir tout',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.black),
                       ),
                     )
                   ],
@@ -241,10 +244,8 @@ class _ScreenHomeState extends State<ScreenHome> {
       margin: const EdgeInsets.symmetric(horizontal: 20),
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-          color: Colors.orange.shade100,
-          boxShadow: const [
-            BoxShadow(blurRadius: 5, color: Color.fromARGB(65, 0, 0, 0))
-          ],
+          color: Colors.grey.withOpacity(0.5),
+          boxShadow: const [BoxShadow(blurRadius: 5, color: Colors.white12)],
           borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -260,7 +261,6 @@ class _ScreenHomeState extends State<ScreenHome> {
                       'Solde Total',
                       style: TextStyle(
                           color: AppTheme.darkGray,
-                          fontSize: 18,
                           fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(
@@ -420,21 +420,6 @@ class _ScreenHomeState extends State<ScreenHome> {
   }
   //conteneur de la balance
 
-  ////////////////////////////////
-  /* calculateBalances(List<Transaction> tarnsactions) {
-    totalBalance = 0;
-    totalExpense = 0;
-    totalIncome = 0;
-    for (Transaction transaction in tarnsactions) {
-      if (transaction.type == TransactionType.income) {
-        totalBalance += transaction.amount;
-        totalIncome += transaction.amount;
-      } else {
-        totalBalance -= transaction.amount;
-        totalExpense += transaction.amount;
-      }
-    }
-  } */
   calculateBalances(List<Transaction> transactions) {
     totalBalance = 0;
     totalExpense = 0;

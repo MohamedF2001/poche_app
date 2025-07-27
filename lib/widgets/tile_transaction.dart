@@ -11,11 +11,10 @@ import 'package:poche/util.dart';
 
 class TransactionTile extends StatefulWidget {
   const TransactionTile(
-      {Key? key,
+      {super.key,
       required this.transaction,
       required this.transactionController,
-      this.enableSlide = true})
-      : super(key: key);
+      this.enableSlide = true});
   final Transaction transaction;
   final TransactionController transactionController;
   final bool enableSlide;
@@ -151,7 +150,7 @@ class _TransactionTileState extends State<TransactionTile> {
 class TileDateView extends StatelessWidget {
   final DateTime date;
   final DateTime today = DateTime.now();
-  TileDateView(this.date, {Key? key, required}) : super(key: key);
+  TileDateView(this.date, {super.key, required});
 
   @override
   Widget build(BuildContext context) {

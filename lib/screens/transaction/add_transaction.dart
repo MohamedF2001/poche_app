@@ -18,7 +18,7 @@ import 'package:toggle_switch/toggle_switch.dart';
 class AddTransaction extends StatefulWidget {
   final Transaction? transaction;
 
-  const AddTransaction({this.transaction, Key? key}) : super(key: key);
+  const AddTransaction({this.transaction, super.key});
 
   @override
   State<AddTransaction> createState() => _AddTransactionState();
@@ -50,9 +50,9 @@ class _AddTransactionState extends State<AddTransaction> {
       transactionType = transaction.type;
     }
     initializeDateFormatting('fr', null).then((_) {
-    // Votre code principal ici
-          //DateFormat('d MMM y, E').format(date);
-  });
+      // Votre code principal ici
+      //DateFormat('d MMM y, E').format(date);
+    });
     super.initState();
   }
 
@@ -81,7 +81,7 @@ class _AddTransactionState extends State<AddTransaction> {
               ? transactionTypes[transactionType.index]
               : 'Ajouter une opération',
           style: const TextStyle(fontWeight: FontWeight.bold),
-        ),  
+        ),
         centerTitle: true,
       ),
       body: Form(
@@ -203,12 +203,11 @@ class _AddTransactionState extends State<AddTransaction> {
                             },
                             style: TextButton.styleFrom(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 25),
+                                  const EdgeInsets.symmetric(horizontal: 10),
                             ),
                             child: const Text(
-                              'ENREGISTRER ET AJOUTER',
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.black),
+                              'Enregistrer et ajouter',
+                              style: TextStyle(color: Colors.black),
                             ),
                           ),
                         ),
@@ -222,10 +221,10 @@ class _AddTransactionState extends State<AddTransaction> {
                           },
                           style: TextButton.styleFrom(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 25)),
+                                  const EdgeInsets.symmetric(horizontal: 10)),
                           child: const Text(
-                            'ENREGISTER',
-                            style: TextStyle(fontSize: 15, color: Colors.black),
+                            'Enregistrer',
+                            style: TextStyle(color: Colors.black),
                           ),
                         ),
                       )
@@ -334,14 +333,14 @@ class _AddTransactionState extends State<AddTransaction> {
           ? DateFormat('EEEE d MMMM y', 'fr').format(date)
           //DateFormat('d MMM, E').format(date)
           : DateFormat('EEEE d MMMM y', 'fr').format(date);
-          //DateFormat('d MMM y, E').format(date);
+  //DateFormat('d MMM y, E').format(date);
 }
 
 class CategorySheet extends StatefulWidget {
   const CategorySheet({
-    Key? key,
+    super.key,
     required this.type,
-  }) : super(key: key);
+  });
   final int type;
 
   @override

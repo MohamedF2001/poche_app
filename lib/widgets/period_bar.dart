@@ -3,12 +3,11 @@ import 'package:poche/widgets/circular_shadow_button.dart';
 
 class PeriodBar extends StatelessWidget {
   const PeriodBar(
-      {Key? key,
+      {super.key,
       this.backgroundDecoration,
       required this.onPrevPress,
       required this.onNextPress,
-      required this.title})
-      : super(key: key);
+      required this.title});
   final BoxDecoration? backgroundDecoration;
   final String title;
   final Function onPrevPress;

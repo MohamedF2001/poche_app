@@ -5,7 +5,7 @@ import 'package:poche/screens/statistics/monthly_chart.dart';
 import 'package:poche/widgets/period_bar.dart';
 
 class YearlyChart extends StatefulWidget {
-  const YearlyChart({Key? key}) : super(key: key);
+  const YearlyChart({super.key});
 
   @override
   State<YearlyChart> createState() => _YearlyChartState();
@@ -229,4 +229,3 @@ class LineChartView extends StatelessWidget {
     );
   }
 } */
-

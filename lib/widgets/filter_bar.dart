@@ -4,8 +4,8 @@ import 'package:poche/controllers/transaction_controller.dart';
 
 class FilterBarv extends StatefulWidget {
   const FilterBarv({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<FilterBarv> createState() => _FilterBarvState();
@@ -51,7 +51,7 @@ class _FilterBarvState extends State<FilterBarv> {
                         : Colors.white,
                     margin: selFilterIndex == index
                         ? const EdgeInsets.only(top: 10)
-                        : const EdgeInsets.only(bottom: 5),
+                        : const EdgeInsets.only(bottom: 10),
                     shape: const RoundedRectangleBorder(),
                     elevation: selFilterIndex == index ? 0 : 2,
                     child: Container(

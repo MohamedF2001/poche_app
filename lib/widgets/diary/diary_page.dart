@@ -9,7 +9,7 @@ import 'package:poche/widgets/circular_button.dart';
 import 'package:poche/widgets/diary/page_layout.dart';
 
 class DiaryPage extends StatefulWidget {
-  DiaryPage({Key? key, required this.date}) : super(key: key);
+  DiaryPage({super.key, required this.date});
   final diaryController = Get.put(DiaryController());
   final DateTime date;
   @override
@@ -172,10 +172,10 @@ class _DiaryPageState extends State<DiaryPage> {
 
 class Dline extends StatelessWidget {
   const Dline({
-    Key? key,
+    super.key,
     required this.title,
     required this.trailing,
-  }) : super(key: key);
+  });
   final String title;
   final String trailing;
 
@@ -203,11 +203,11 @@ class Dline extends StatelessWidget {
 
 class Dtitle extends StatelessWidget {
   const Dtitle({
-    Key? key,
+    super.key,
     required this.title,
     required this.trailing,
     this.trailingColor = Colors.black,
-  }) : super(key: key);
+  });
   final String title;
   final String trailing;
   final Color trailingColor;
@@ -233,7 +233,7 @@ class Dtitle extends StatelessWidget {
 }
 
 class BlankLine extends StatelessWidget {
-  const BlankLine({Key? key}) : super(key: key);
+  const BlankLine({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -243,7 +243,7 @@ class BlankLine extends StatelessWidget {
 
 class SmallDateView extends StatelessWidget {
   final DateTime date;
-  const SmallDateView(this.date, {Key? key}) : super(key: key);
+  const SmallDateView(this.date, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -285,8 +285,7 @@ class SmallDateView extends StatelessWidget {
 class DateView extends StatelessWidget {
   final DateTime date;
   const DateView(this.date,
-      {Key? key, required this.onNext, required this.onPrev})
-      : super(key: key);
+      {super.key, required this.onNext, required this.onPrev});
   final Function onNext;
   final Function onPrev;
 

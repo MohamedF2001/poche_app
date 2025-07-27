@@ -9,7 +9,7 @@ import 'package:poche/widgets/empty_view.dart';
 import 'package:poche/widgets/menu_widget.dart';
 
 class ScreenCategories extends StatefulWidget {
-  const ScreenCategories({Key? key}) : super(key: key);
+  const ScreenCategories({super.key});
 
   @override
   State<ScreenCategories> createState() => _ScreenCategoriesState();
@@ -43,9 +43,12 @@ class _ScreenCategoriesState extends State<ScreenCategories>
     return Scaffold(
       appBar: AppBar(
         leading: const MenuWidget(),
-        title: const Text('Catégories',style: TextStyle(
+        title: const Text(
+          'Catégories',
+          style: TextStyle(
             fontWeight: FontWeight.bold,
-          ),),
+          ),
+        ),
         centerTitle: true,
       ),
       floatingActionButton: Visibility(
@@ -85,9 +88,7 @@ class _ScreenCategoriesState extends State<ScreenCategories>
                       borderRadius: BorderRadius.circular(25.0),
                       gradient: LinearGradient(colors: [
                         Colors.white,
-                        _tabController.index == 0
-                            ? Colors.green
-                            : Colors.red
+                        _tabController.index == 0 ? Colors.green : Colors.red
                       ])),
                   labelColor: Colors.black,
                   unselectedLabelColor: Colors.black54,
@@ -115,7 +116,7 @@ class _ScreenCategoriesState extends State<ScreenCategories>
 
 class CategoryList extends StatelessWidget {
   final int type;
-  const CategoryList({Key? key, required this.type}) : super(key: key);
+  const CategoryList({super.key, required this.type});
 
   @override
   Widget build(BuildContext context) {

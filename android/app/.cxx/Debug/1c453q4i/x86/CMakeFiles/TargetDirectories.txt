@@ -1,0 +1,2 @@
+C:/Users/frdmo/sideProject/poche/android/app/.cxx/Debug/1c453q4i/x86/CMakeFiles/edit_cache.dir
+C:/Users/frdmo/sideProject/poche/android/app/.cxx/Debug/1c453q4i/x86/CMakeFiles/rebuild_cache.dir

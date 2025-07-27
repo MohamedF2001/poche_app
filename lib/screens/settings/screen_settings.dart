@@ -17,7 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -95,7 +95,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 CustomSettingsTile(
                     child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.black,
                       borderRadius: BorderRadius.circular(10)),
                   child: Material(
                     child: InkWell(
@@ -260,8 +260,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     context: context,
                     applicationIcon: ClipRRect(
                         borderRadius: BorderRadius.circular(7),
-                        child: Image.asset('assets/images/mony.jpg',
-                            width: 50)),
+                        child:
+                            Image.asset('assets/images/mony.jpg', width: 50)),
                     applicationName: 'Mony',
                     applicationVersion: 'version 1.0.1',
                     children: <Widget>[
@@ -357,8 +357,7 @@ class SettingsVisibility extends AbstractSettingsTile {
   final bool visibe;
   final Widget child;
   const SettingsVisibility(
-      {Key? key, required this.visibe, required this.child})
-      : super(key: key);
+      {super.key, required this.visibe, required this.child});
   @override
   Widget build(BuildContext context) {
     return Visibility(visible: visibe, child: child);

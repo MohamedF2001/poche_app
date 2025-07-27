@@ -4,8 +4,7 @@ class PageLayout extends StatelessWidget {
   final Widget? child;
   final double lineHeiht;
 
-  const PageLayout({Key? key, this.child, this.lineHeiht = 20})
-      : super(key: key);
+  const PageLayout({super.key, this.child, this.lineHeiht = 20});
 
   @override
   Widget build(BuildContext context) {

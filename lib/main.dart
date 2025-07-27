@@ -4,6 +4,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:poche/models/category.dart';
 import 'package:poche/models/transaction.dart';
 import 'package:poche/screens/onboard/on_board.dart';
+import 'package:poche/screens/splashscreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +26,7 @@ Future main(List<String> args) async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +35,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Poppins",
         //primarySwatch: Colors.blue,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.orange),
-        floatingActionButtonTheme:
-        const FloatingActionButtonThemeData(backgroundColor: Colors.orange),
+        //appBarTheme: const AppBarTheme(backgroundColor: Colors.blueAccent),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            backgroundColor: Colors.blueAccent),
       ),
       debugShowCheckedModeBanner: false,
-      home:
+      //home: hasAccount ? const ScreenHome() : const OnboardingScreen(),
+      home: FutureBuilder(
+        future: SharedPreferences.getInstance(),
+        builder: (context, AsyncSnapshot<SharedPreferences> snapshot) {
+          if (snapshot.hasData) {
+            final bool isInited = snapshot.data!.getBool('isInited') ?? false;
+            return isInited ? const SplashScreen() : const OnboardingScreen();
+          }
+          return const CircularProgressIndicator();
+        },
+      ),
       //const WebViewExample(),
-      const OnboardingScreen(),
+      //const OnboardingScreen(),
       //const WebViewApp(),
       //const ChatScreen(),
     );

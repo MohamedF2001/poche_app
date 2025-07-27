@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'home/home_drawer.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -41,10 +41,14 @@ class _SplashScreenState extends State<SplashScreen> {
             height: double.infinity,
             color: Colors.grey.shade100,
           ),
-          Image.asset('assets/images/spl_top.png',color: Colors.orange,),
+          Image.asset(
+            'assets/images/spl_top.png',
+            color: Colors.blueAccent,
+          ),
           Align(
             alignment: Alignment.bottomRight,
-            child: Image.asset('assets/images/spl_bottom.png',color: Colors.orange),
+            child: Image.asset('assets/images/spl_bottom.png',
+                color: Colors.blueAccent),
           ),
           Align(
             child: Column(
@@ -117,6 +121,6 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
         );
       },
-    ); 
+    );
   }
 }

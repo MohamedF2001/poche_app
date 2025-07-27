@@ -4,8 +4,7 @@ import 'package:poche/models/category.dart';
 import 'package:poche/util.dart';
 
 class AddCateoryDialog extends StatefulWidget {
-  const AddCateoryDialog({Key? key, this.category, required this.type})
-      : super(key: key);
+  const AddCateoryDialog({super.key, this.category, required this.type});
   final int type;
   final Category? category;
 
@@ -78,10 +77,14 @@ class _AddCateoryDialogState extends State<AddCateoryDialog> {
 
   _cancelButton(BuildContext context) {
     return TextButton(
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-        child: const Text('Retour',style: TextStyle(color: Colors.black),),);
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+      child: const Text(
+        'Retour',
+        style: TextStyle(color: Colors.black),
+      ),
+    );
   }
 
   save() {

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -9,7 +11,7 @@ import 'package:poche/util.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EditProfile extends StatefulWidget {
-  const EditProfile({Key? key, this.isFromInit = false}) : super(key: key);
+  const EditProfile({super.key, this.isFromInit = false});
   final bool isFromInit;
 
   @override
@@ -33,9 +35,13 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.isFromInit ? 'Editer le profil' : 'Profile',style: const TextStyle(
-          color: Colors.white
-        ),),
+        title: Text(
+          widget.isFromInit ? 'Editer le profil' : 'Profile',
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
         centerTitle: true,
       ),
       resizeToAvoidBottomInset: false,
@@ -106,31 +112,30 @@ class _EditProfileState extends State<EditProfile> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.orange,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    //color: Colors.black,
-                    color: Colors.orange,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                elevation: 0,
-                padding:  EdgeInsets.all(16),
-                textStyle: const TextStyle(
-                  //fontSize: (width <= 550) ? 13 : 17
-                  fontSize: 15,
-                ),
-              ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                            //color: Colors.black,
+                            color: Colors.blue,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        elevation: 0,
+                        padding: const EdgeInsets.all(16),
+                        textStyle: const TextStyle(
+                          //fontSize: (width <= 550) ? 13 : 17
+                          fontSize: 15,
+                        ),
+                      ),
                       onPressed: () {
                         _save();
                       },
                       child: Text(
                         widget.isFromInit ? 'Suivant' : 'Enregistrer',
                         style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
+                            color: Colors.black, fontWeight: FontWeight.bold),
                       ))
                 ],
               ),
@@ -260,12 +265,12 @@ class _EditProfileState extends State<EditProfile> {
 
 class LabelIconButton extends StatelessWidget {
   const LabelIconButton({
-    Key? key,
+    super.key,
     this.iconColor = Colors.blue,
     required this.icon,
     required this.label,
     required this.onPress,
-  }) : super(key: key);
+  });
   final IconData icon;
   final Color iconColor;
   final String label;
