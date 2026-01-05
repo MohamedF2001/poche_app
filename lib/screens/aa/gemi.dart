@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -12,7 +13,8 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _userInput = TextEditingController();
-  static const apiKey = "AIzaSyDKqpjyBbXJ86EKKESHP2JYdkZhcxm-dzA";
+  //static const apiKey = "AIzaSyDKqpjyBbXJ86EKKESHP2JYdkZhcxm-dzA";
+  static final apiKey = dotenv.env['GEMINI_API_KEY']!;
   //final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
   final model =
       GenerativeModel(model: 'gemini-1.5-flash-latest', apiKey: apiKey);

@@ -54,6 +54,7 @@ void main() async {
     ),
   );
   await dotenv.load(fileName: ".env");
+  final apiKey = dotenv.env['GEMINI_API_KEY']!;
   runApp(
     const ProviderScope(child: MyApp()),
   );

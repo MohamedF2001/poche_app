@@ -407,8 +407,10 @@ Donne-moi une analyse détaillée avec conseils personnalisés pour améliorer m
 
 import 'dart:async';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:poche/test_list_model.dart';
 import '../../../../core/config/gemini_config.dart';
 import '../../domain/entities/chat_message.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class GeminiDataSource {
   late final GenerativeModel _model;
@@ -426,7 +428,7 @@ class GeminiDataSource {
 
     _model = GenerativeModel(
       model: 'gemini-2.5-flash',
-      apiKey: GeminiConfig.apiKey,
+      apiKey: dotenv.env['GEMINI_API_KEY']!,
       generationConfig: GenerationConfig(
         temperature: 0.7,
         topK: 40,

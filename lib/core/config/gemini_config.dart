@@ -1,5 +1,5 @@
 // lib/core/config/gemini_config.dart
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 class GeminiConfig {
   // 🔐 IMPORTANT: Remplacez par votre vraie clé API Gemini
   // Obtenez votre clé sur: https://makersuite.google.com/app/apikey
@@ -12,7 +12,7 @@ class GeminiConfig {
 
   //static bool get isConfigured => apiKey != 'AIzaSyDwe1g3bMoVGB4WRcOAcVVXjsTXGemvja0';
 
-  static const String apiKey = 'AIzaSyDwe1g3bMoVGB4WRcOAcVVXjsTXGemvja0';
+  static final String apiKey = dotenv.env['GEMINI_API_KEY']!;
 
   static bool get isConfigured => apiKey.trim().isNotEmpty;
 }

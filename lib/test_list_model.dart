@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-const String apiKey = "AIzaSyDwe1g3bMoVGB4WRcOAcVVXjsTXGemvja0"; // ← Remplace ici
+//const String apiKey = "AIzaSyDwe1g3bMoVGB4WRcOAcVVXjsTXGemvja0"; // ← Remplace ici
 
 Future<void> main() async {
   final url = Uri.parse(
-    "https://generativelanguage.googleapis.com/v1beta/models?key=$apiKey",
+    "https://generativelanguage.googleapis.com/v1beta/models?key=${dotenv.env['GEMINI_API_KEY']!}",
   );
 
   print("📡 Appel API en cours...");
