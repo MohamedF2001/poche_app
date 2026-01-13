@@ -12,13 +12,13 @@ class ExportService {
       WidgetRef ref,
       ) async {
     // Show loading
-    showDialog(
+    /*showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) => const Center(
         child: CircularProgressIndicator(),
       ),
-    );
+    );*/
 
     try {
       final transactions = ref.read(filteredTransactionsProvider);
