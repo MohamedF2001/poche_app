@@ -38,7 +38,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           const SizedBox(height: 24),
 
           // Account Section
-          _buildSection(
+          /*_buildSection(
             title: 'Compte',
             children: [
               _buildSettingsTile(
@@ -54,16 +54,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   );
                 },
               ),
-              _buildSettingsTile(
+              *//*_buildSettingsTile(
                 icon: Icons.security,
                 title: 'Sécurité',
                 subtitle: 'Mot de passe et authentification',
                 onTap: () {},
-              ),
+              ),*//*
             ],
           ),
 
-          const SizedBox(height: 24),
+          const SizedBox(height: 24),*/
 
           // App Settings Section
           _buildSection(
@@ -77,14 +77,14 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   setState(() => _isDarkMode = value);
                 },
               ),
-              _buildSwitchTile(
+              /*_buildSwitchTile(
                 icon: Icons.notifications_outlined,
                 title: 'Notifications',
                 value: _notificationsEnabled,
                 onChanged: (value) {
                   setState(() => _notificationsEnabled = value);
                 },
-              ),
+              ),*/
               _buildSettingsTile(
                 icon: Icons.language,
                 title: 'Langue',
@@ -471,12 +471,14 @@ class ProfileEditScreen extends StatefulWidget {
 
 class _ProfileEditScreenState extends State<ProfileEditScreen> {
   final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
   final storageBox = Hive.box('storage');
 
   @override
   void initState() {
     super.initState();
     _nameController.text = storageBox.get('userName', defaultValue: '');
+    _emailController.text = storageBox.get('userEmail', defaultValue: '');
   }
 
   @override
@@ -552,13 +554,14 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
 
           // Email Field
           TextFormField(
+            controller: _emailController,
             decoration: const InputDecoration(
               labelText: 'Email',
               prefixIcon: Icon(Icons.email_outlined),
             ),
           ),
 
-          const SizedBox(height: 16),
+          /*const SizedBox(height: 16),
 
           // Phone Field
           TextFormField(
@@ -566,7 +569,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
               labelText: 'Téléphone',
               prefixIcon: Icon(Icons.phone_outlined),
             ),
-          ),
+          ),*/
         ],
       ),
     );
@@ -574,6 +577,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
 
   void _saveProfile() {
     storageBox.put('userName', _nameController.text);
+    storageBox.put('userEmail', _emailController.text);
     Navigator.pop(context);
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(

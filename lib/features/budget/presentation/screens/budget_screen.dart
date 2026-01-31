@@ -22,14 +22,14 @@ class BudgetScreen extends ConsumerWidget {
       backgroundColor: AppColors.background,
       appBar: AppBar(
         title: const Text('Budgets'),
-        actions: [
+        /*actions: [
           IconButton(
             onPressed: () {
               // Show budget insights
             },
             icon: const Icon(Icons.insights),
           ),
-        ],
+        ],*/
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _showAddBudgetDialog(context),
@@ -39,7 +39,7 @@ class BudgetScreen extends ConsumerWidget {
       body: budgetState.isLoading
           ? const Center(child: CircularProgressIndicator())
           : budgetsWithSpending.isEmpty
-              ? EmptyState(
+              ? const EmptyState(
                   icon: Icons.account_balance_wallet_outlined,
                   title: 'Aucun budget',
                   subtitle:

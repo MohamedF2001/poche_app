@@ -479,6 +479,7 @@ class GeminiDataSource {
       ));
     } catch (e) {
       yield 'Erreur Gemini: $e';
+      print('Erreur Gemini: $e');
     }
   }
 

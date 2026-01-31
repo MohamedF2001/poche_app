@@ -60,7 +60,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
               ],
             ),
-            actions: [
+            /*actions: [
               IconButton(
                 onPressed: () {
                   // Navigate to notifications
@@ -86,7 +86,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
               ),
               const SizedBox(width: 8),
-            ],
+            ],*/
           ),
 
           // Content
